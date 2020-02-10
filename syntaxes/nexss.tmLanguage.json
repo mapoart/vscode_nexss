@@ -1,0 +1,77 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Nexss",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#patterns"
+    },
+    {
+      "include": "#constants"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.nexss",
+          "match": "\\b(System/|Download|FS/|Env/|Unpack)\\b"
+        },
+        {
+          "name": "keyword.other.nexss",
+          "match": "\\b(nxsJoin|nxsConcat|--nxsOut|nxsConcatAs|nxsRenameTo|nxsRenameFrom)\\b"
+        },
+        {
+          "name": "keyword.control.nexss",
+          "match": "\\b(Get|EnsurePath)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.nexss",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.nexss",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-dash.nexss",
+          "begin": "!#",
+          "end": "\n"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.character",
+          "match": "(<|>|=|!|--)"
+        },
+        {
+          "name": "constant.regexp",
+          "match": "\\b(?i)(NEXSS_APPS_PATH)\\b"
+        },
+        {
+          "name": "constant.numeric",
+          "match": "[0-9]"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.nexss"
+}

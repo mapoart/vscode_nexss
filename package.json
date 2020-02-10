@@ -1,0 +1,25 @@
+{
+    "name": "mapoart-vscode-nexss",
+    "displayName": "mapoart.vscode-nexss",
+    "description": "Nexss Programmer extension for VSCode",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "nexss",
+            "aliases": ["Nexss", "nexss"],
+            "extensions": [".nexss"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "nexss",
+            "scopeName": "source.nexss",
+            "path": "./syntaxes/nexss.tmLanguage.json"
+        }]
+    }
+}
