@@ -1,8 +1,24 @@
-!# Nexss Programmer PRO 2.1.0 Example - Install DLang from online pack.
 
-!# --appName=dmd.2.090.0.windows --bin=dmd2\windows\bin
+config.json // Reads config to the memory
+// config.json is parsed so you can use there variables etc, then you can load another json(s) and use
+// variables from the previous one etc.
 
-System/Env/Get NEXSS_APPS_PATH --nxsRenameFrom=NEXSS_APPS_PATH --nxsRenameTo=destinationFolder
-Download http://downloads.dlang.org/releases/2.x/2.090.0/dmd.2.090.0.windows.7z
-FS/Unpack --nxsConcat=nxsOut,bin --nxsJoin=PATH --nxsConcatAs=EnvPathAdd
-System/Env/EnsurePath
+// Use of Storage/JSON package which basically reads values from the json file.
+// by default it is nexssStorage.json
+// more: nexss Storage/JSON help
+Storage/JSON/Get emailLastUID --nxsDefault="1"
+// Email/Download --emailSearch="UNSEEN SINCE ${lastCheck}" (to eml)
+
+Email --emailSearch=${emailLastUID} --attachmentType="pdf" --attachmentType="jpg"
+
+Convert/ToTxt --nxsInFrom=emailStoredAttachments
+// Cleanup
+$# --nxsDelete=emailStoredAttachments,emailFound,nxsInfo,searchCriteria
+
+FS/Find Invoice Faktura --inPath="${cwd}/invoices" --inTypes=txt
+// Replace Stream you can also use: nexssFileExt
+
+Data/Replace --replaceFrom=".txt" --replaceTo=".pdf"
+Printer // Print with any language - ahk?
+
+// Storage/JSON/Set emailLastUID // As all is done and set the emailLastUID

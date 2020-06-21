@@ -27,26 +27,52 @@
       "patterns": [
         {
           "name": "keyword.control.nexss",
-          "match": "\\b(System/|Download|FS/|Env/|Unpack)\\b"
+          "match": "\\b(App|Blender|Clipboard|Convert|Data|Debug|Email|FS|Id|Input|Install|Keyboard|Mouse|Nexss|Output|Printer|Screen|Select|Storage|System|Template|Web)\\b"
         },
         {
           "name": "keyword.other.nexss",
-          "match": "\\b(nxsJoin|nxsConcat|--nxsOut|nxsConcatAs|nxsRenameTo|nxsRenameFrom)\\b"
+          "match": "\\b(nxsAs|nxsTest|nxsDelete|nxsDefault|nxsInFrom|replaceFrom|replaceTo|nxsRenameFrom)\\b"
         },
         {
           "name": "keyword.control.nexss",
-          "match": "\\b(Get|EnsurePath)\\b"
+          "match": "\\b(Run|VideoToGif|Concat|Delete|Pretty|Rename|Replace|Select|Show|Dir|Find|Temp|Unlock|Unpack|OCR|Install|Keyboard|Move|MoveToImage|PackageBrowser|Text|AreaOCR|AreaVideo|Capture|VideoRecord|Area|Info|Output|Click|Get|EnsurePath|ToTxt|Find|Replace)\\b"
         }
       ]
     },
     "strings": {
-      "name": "string.quoted.double.nexss",
-      "begin": "\"",
-      "end": "\"",
       "patterns": [
         {
-          "name": "constant.character.escape.nexss",
-          "match": "\\\\."
+          "name": "string.quoted.double.nexss",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nexss",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.nexss",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nexss",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.brackets.nexss",
+          "begin": "{",
+          "end": "}",
+          "patterns": [
+            {
+              "name": "constant.character.escape.nexss",
+              "match": "\\\\."
+            }
+          ]
         }
       ]
     },
@@ -77,7 +103,7 @@
         },
         {
           "name": "constant.regexp",
-          "match": "\\b(?i)(NEXSS_APPS_PATH)\\b"
+          "match": "\\b(?i)(NEXSS_APPS_PATH|JSON)\\b"
         },
         {
           "name": "constant.numeric",
