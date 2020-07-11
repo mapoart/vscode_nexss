@@ -35,7 +35,7 @@
         },
         {
           "name": "keyword.control.nexss",
-          "match": "\\b(Run|VideoToGif|Concat|Delete|Pretty|Rename|Replace|Select|Show|Dir|Find|Temp|Unlock|Unpack|OCR|Install|Keyboard|Move|MoveToImage|PackageBrowser|Text|AreaOCR|AreaVideo|Capture|VideoRecord|Area|Info|Output|Click|Get|EnsurePath|ToTxt|Find|Replace)\\b"
+          "match": "\\b(Run|VideoToGif|Concat|Delete|Pretty|Rename|Replace|Select|Show|Dir|Find|Temp|Unlock|Unpack|OCR|Install|Keyboard|Move|MoveToImage|PackageBrowser|Text|AreaOCR|AreaVideo|Capture|VideoRecord|Area|Info|Output|Click|Get|EnsurePath|ToTxt|Find|Replace|Copy|End)\\b"
         }
       ]
     },
