@@ -5,7 +5,7 @@
   "homepage": "https://nexss.com",
   "displayName": "Nexss.com",
   "description": "Nexss Programmer extension for VSCode",
-  "version": "0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.42.0"
   },
