@@ -17,6 +17,9 @@
     },
     {
       "include": "#constants"
+    },
+    {
+      "include": "#specialCommand"
     }
   ],
   "repository": {
@@ -51,8 +54,18 @@
       "patterns": [
         {
           "name": "comment.line.double-dash.nexss",
-          "begin": "!#",
+          "begin": "//",
           "end": "\n"
+        }
+      ]
+    },
+    "specialCommand": {
+      "patterns": [
+        {
+          "name": "string.quoted",
+          "begin": "\\$#",
+          "end": "\n",
+          "match": "\\$#"
         }
       ]
     },

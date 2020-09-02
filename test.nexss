@@ -1,8 +1,12 @@
-!# Nexss Programmer PRO 2.1.0 Example - Install DLang from online pack.
-
-!# --appName=dmd.2.090.0.windows --bin=dmd2\windows\bin
-
-System/Env/Get NEXSS_APPS_PATH --nxsRenameFrom=NEXSS_APPS_PATH --nxsRenameTo=destinationFolder
-Download http://downloads.dlang.org/releases/2.x/2.090.0/dmd.2.090.0.windows.7z
-FS/Unpack --nxsConcat=nxsOut,bin --nxsJoin=PATH --nxsConcatAs=EnvPathAdd
-System/Env/EnsurePath
+// autoPrint.nexss
+autoprint.config.json // Reads config to the memory
+Storage/JSON/Get emailLastUID --nxsDefault="1"
+Email --emailSearch=${emailLastUID} --attachmentType="pdf"
+Output/End --_ifNotExists='emailStoredAttachments' "No new emails found" --_type=warn
+Convert/ToTxt --nxsInFrom=emailStoredAttachments // Convert PDF to text
+FS/Find Invoice Faktura --inPath="${cwd}/invoices" --inTypes=txt
+Data/Replace --_replaceFrom=".txt" --_replaceTo=".pdf"
+Printer
+FS/Copy --nxsIn="${cwd}/invoices" --_destination=printed --_delete --_sure
+Storage/JSON/Set emailLastUID '${emailLastUID+1}' // We set which email should be checked next
+Output/End "Process has been done." "Found ${emailStoredAttachments.length}"
